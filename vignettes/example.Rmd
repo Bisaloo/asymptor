@@ -1,0 +1,58 @@
+---
+title: "Example on NY data during the COVID-19 pandemic"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Example on NY data during the COVID-19 pandemic}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(asymptor)
+```
+
+Let's start by loading the example data. It's bundled in the package but 
+originally comes from https://github.com/GoogleCloudPlatform/covid-19-open-data
+(Apache License 2.0).
+
+```{r}
+df <- readRDS(system.file("extdata", "covid19_ny.rds", package = "asymptor"))
+head(df)
+```
+
+We can feed this data directly to the `estimate_asympto()` function. This 
+function requires 4 columns, labelled as `date`, `cases`, `deaths`,
+and `recoveries` (if you want the upper bound), containing the daily number 
+(not the cumulated number!)
+)
+
+```{r}
+asy <- estimate_asympto(df)
+```
+
+We may want to visualise these estimations alongside the empirical data. So,
+we start by merging the two datasets:
+
+```{r}
+df <- merge(df, asy)
+```
+
+Then, we can the ggplot2 package to plot the result:
+
+```{r, fig.height = 4.5, fig.width = 9, out.width='100%'}
+library(ggplot2)
+ggplot(df, aes(x = date)) +
+  geom_ribbon(aes(ymin = pmax(cases, cases+lower, na.rm = TRUE), 
+                  ymax = pmax(cases, cases+upper, na.rm = TRUE)), 
+              fill = "grey30") +
+  geom_line(aes(y = cases), color = "red") +
+  labs(title = "Estimated total vs detected cases of COVID-19 in NY")
+```
+

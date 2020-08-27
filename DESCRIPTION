@@ -1,0 +1,29 @@
+Package: asymptor
+Title: Estimate Asymptomatic Cases via Capture/Recapture Methods
+Version: 0.1
+Authors@R: 
+    person(given = "Hugo",
+           family = "Gruson",
+           role = c("cre", "aut", "cph"),
+           email = "hugo.gruson+R@normalesup.org",
+           comment = c(ORCID = "0000-0002-4094-1476"))
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: GPL-3
+URL: https://bisaloo.github.io/asymptor/, https://github.com/bisaloo/asymptor
+BugReports: https://github.com/bisaloo/asymptor/issues
+Depends:
+    R (>= 3.5)
+Suggests: 
+    covr,
+    ggplot2,
+    knitr,
+    rmarkdown,
+    spelling,
+    testthat
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
+Language: en-GB
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1

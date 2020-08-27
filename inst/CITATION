@@ -1,0 +1,34 @@
+citHeader("Please cite both the package and the original articles in your publications:")
+
+year <- sub("-.*", "", meta$Date)
+note <- sprintf("R package version %s", meta$Version)
+
+bibentry(
+  bibtype = "Misc",
+  title   = "{contactdata}: Social Contact Matrices for 152 Countries",
+  author = person("Hugo", "Gruson"),
+  year   = year,
+  note   = note,
+  header = "To cite this package in publications, please use:",
+  url    = "https://CRAN.R-project.org/package=contactdata"
+)
+
+bibentry(
+  bibtype  = "Article",
+  title    = "Estimating the undetected infections in the Covid-19 outbreak by harnessing capture–recapture methods",
+  author   = c("Böhning D.", "Rocchetti I.", "Maruotti A.", "Holling H."),
+  journal  = "International Journal of Infectious Diseases",
+  year     = "2020",
+  volume   = "97",
+  pages    = "197--201",
+  doi      = "10.1016/j.ijid.2020.06.009"
+)
+
+bibentry(
+  bibtype  = "Article",
+  title    = "Estimating the size of undetected cases of the SARS-CoV-2 outbreak in Europe: An upperbound estimator",
+  author   = c("Rocchetti I.", "Böhning D.", "Holling H.", "Maruotti A."),
+  journal  = "medRxiv",
+  year     = "2020",
+  doi      = "10.1101/2020.07.14.20153445"
+)
