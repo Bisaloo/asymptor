@@ -46,13 +46,14 @@ df <- merge(df, asy)
 
 Then, we can the ggplot2 package to plot the result:
 
-```{r, fig.height = 4.5, fig.width = 9, out.width='100%'}
+```{r, example_fig, fig.height = 4.5, fig.width = 9, out.width='100%'}
 library(ggplot2)
 ggplot(df, aes(x = date)) +
   geom_ribbon(aes(ymin = pmax(cases, cases+lower, na.rm = TRUE), 
                   ymax = pmax(cases, cases+upper, na.rm = TRUE)), 
               fill = "grey30") +
   geom_line(aes(y = cases), color = "red") +
-  labs(title = "Estimated total vs detected cases of COVID-19 in NY")
+  labs(title = "Estimated total vs detected cases of COVID-19 in NY") +
+  theme_minimal()
 ```
 
