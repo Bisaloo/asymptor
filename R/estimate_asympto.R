@@ -56,7 +56,7 @@ estimate_asympto <- function(df, bounds = c("lower", "upper")) {
     if (k == 1) {
       df$cases
     } else {
-      asymptor::custom_lag(df$cases, k-1) + vapply(0:(k-2), function(i) asymptor::custom_lag(df$deaths, i), numeric(nrow(df)))
+      custom_lag(df$cases, k-1) + vapply(0:(k-2), function(i) custom_lag(df$deaths, i), numeric(nrow(df)))
     }
   }
 
