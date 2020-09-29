@@ -150,8 +150,9 @@ bound, an additional <code>recoveries</code> column is required</p></td>
     </tr>
     <tr>
       <th>bounds</th>
-      <td><p><code>"lower"</code>, <code>"upper"</code>, or both (<code>c("lower, "upper"</code>)), telling
-which bounds of the number of asymptomatic cases are computed.
+      <td><p><code>"lower"</code>, <code>"upper"</code>, or both <code>c("lower, "upper"</code>) (the
+default), telling which bounds of the number of asymptomatic cases are
+computed.
 associated with the lower and upper bounds.
 estimation. <code>FALSE</code> is never the recommended setting excepted for testing
 or debugging purpose.</p></td>
@@ -160,11 +161,13 @@ or debugging purpose.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data.frame containing the initial data from <code>df</code>, with 2
-additional columns containing the daily number of asymptomatic/undetected
-cases (<code>asymptocases</code>), and the rate of asymptomatic cases (<code>asymptorate</code>),
-possibly smoothed over multiple days, depending on the value of the
-<code>smooth</code> argument.</p>
+    <p>A <code>data.frame</code> with two or three columns (depending on the value of
+the <code>bounds</code> argument):</p><ul>
+<li><p><code>date</code>: the original <code>date</code> column from your input dataset <code>df</code></p></li>
+<li><p><code>lower</code>: the lower bound of asymptomatic cases</p></li>
+<li><p><code>upper</code>: the upper bound of asymptomatic cases</p></li>
+</ul>
+
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Böhning D., Rocchetti I., Maruotti A., Holling H. (2020),

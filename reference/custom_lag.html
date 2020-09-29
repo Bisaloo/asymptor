@@ -129,7 +129,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Lag a vector</h1>
-    <small class="dont-index">Source: <a href='https://github.com/bisaloo/asymptor/blob/master/R/lag.R'><code>R/lag.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/bisaloo/asymptor/blob/master/R/custom_lag.R'><code>R/custom_lag.R</code></a></small>
     <div class="hidden name"><code>custom_lag.Rd</code></div>
     </div>
 
@@ -158,11 +158,11 @@
 The behaviour of this <code><a href='https://rdrr.io/r/stats/lag.html'>lag()</a></code> function is closer to that of <code>dplyr::lag()</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'>custom_lag</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>3</span>,<span class='fl'>5</span><span class='op'>)</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in custom_lag(c(1, 3, 5), 1): could not find function "custom_lag"</span></div><div class='input'>
+
 <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'>custom_lag</span><span class='op'>(</span><span class='va'>LETTERS</span>, <span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in custom_lag(LETTERS, 5): could not find function "custom_lag"</span></div><div class='input'><span class='co'># }</span>
+<span class='op'>}</span>
 
 </div></pre>
   </div>
