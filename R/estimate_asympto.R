@@ -3,8 +3,9 @@
 #' @param df A data.frame containing three columns containing `date`, the daily
 #'   number of `cases`, and the daily number of `deaths`. To compute the upper
 #'   bound, an additional `recoveries` column is required
-#' @param bounds `"lower"`, `"upper"`, or both (`c("lower, "upper"`)), telling
-#'   which bounds of the number of asymptomatic cases are computed.
+#' @param bounds `"lower"`, `"upper"`, or both `c("lower, "upper"`) (the
+#'   default), telling which bounds of the number of asymptomatic cases are
+#'   computed.
 # @param sd If `TRUE` (defaults to `FALSE`), returns the standard deviation
 #'   associated with the lower and upper bounds.
 # @param unbiased If `TRUE` (the default), returns the unbiased version of the

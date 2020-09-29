@@ -11,18 +11,21 @@ estimate_asympto(df, bounds = c("lower", "upper"))
 number of \code{cases}, and the daily number of \code{deaths}. To compute the upper
 bound, an additional \code{recoveries} column is required}
 
-\item{bounds}{\code{"lower"}, \code{"upper"}, or both (\verb{c("lower, "upper"})), telling
-which bounds of the number of asymptomatic cases are computed.
+\item{bounds}{\code{"lower"}, \code{"upper"}, or both \verb{c("lower, "upper"}) (the
+default), telling which bounds of the number of asymptomatic cases are
+computed.
 associated with the lower and upper bounds.
 estimation. \code{FALSE} is never the recommended setting excepted for testing
 or debugging purpose.}
 }
 \value{
-A data.frame containing the initial data from \code{df}, with 2
-additional columns containing the daily number of asymptomatic/undetected
-cases (\code{asymptocases}), and the rate of asymptomatic cases (\code{asymptorate}),
-possibly smoothed over multiple days, depending on the value of the
-\code{smooth} argument.
+A \code{data.frame} with two or three columns (depending on the value of
+the \code{bounds} argument):
+\itemize{
+\item \code{date}: the original \code{date} column from your input dataset \code{df}
+\item \code{lower}: the lower bound of asymptomatic cases
+\item \code{upper}: the upper bound of asymptomatic cases
+}
 }
 \description{
 Estimate the proportion of asymptomatic cases by capture/recapture
