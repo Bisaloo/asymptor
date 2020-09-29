@@ -1,0 +1,14 @@
+template:
+  params:
+    bootswatch: flatly
+  opengraph:
+    image:
+      src: man/figures/logo.png
+      alt: "A symptomatic person surrounded by many asymptomatic people"
+    twitter:
+      creator: "@grusonh"
+      card: summary_large_image
+
+authors:
+  Hugo Gruson:
+    href: https://www.normalesup.org/~hgruson/
