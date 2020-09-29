@@ -30,7 +30,7 @@ Rocchetti et al.
 
 ## Installation
 
-You you can install the development version of asymptor from 
+You can install the development version of asymptor from 
 GitHub with:
 
 ```{r, eval = FALSE}

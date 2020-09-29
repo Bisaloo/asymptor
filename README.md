@@ -22,8 +22,7 @@ and Rocchetti et al.
 
 ## Installation
 
-You you can install the development version of asymptor from GitHub
-with:
+You can install the development version of asymptor from GitHub with:
 
 ``` r
 # install.packages("remotes")
