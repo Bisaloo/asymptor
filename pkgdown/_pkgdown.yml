@@ -12,3 +12,14 @@ template:
 authors:
   Hugo Gruson:
     href: https://www.normalesup.org/~hgruson/
+
+navbar:
+  title: ~
+  type: default
+  left:
+    - text: Reference
+      href: reference/index.html
+    - text: Example
+      href: articles/example.html
+    - text: Changelog
+      href: news/index.html
