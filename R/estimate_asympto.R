@@ -67,36 +67,36 @@ estimate_asympto <- function(df, bounds = c("lower", "upper")) {
   # f0 is also the lower bound
   f0 <- f1*(f1-1)/(1+pmax(0, f2))
 
-  current <- with(df, cases-deaths-recoveries)
-
-  p <- function(k) {
-    rowSums(vapply(seq_len(k), f, numeric(nrow(df)))) / current
-  }
-
-  pi0 <- f0 / (f1+f2+f0)
-
-  pi <- function(k) {
-    pi0 + (1-pi0) * p(k)
-  }
-
-  pi0_ub <- (p(2)-p(1))/(1-pi(1)/pi(2)+p(2)-p(1))
-
-  upb <- current * pi0_ub / (1-pi0_ub)
-
-  if (any(f0 < 0, upb < 0, na.rm = TRUE)) {
-    warning(
-      "Number of asymptomatic cases is negative for some dates. ",
-      "Manually setting to 0", call. = FALSE
-    )
-    f0[f0 < 0] <- 0
-    upb[upb < 0] <- 0
-  }
-
   if ("lower" %in% bounds) {
     res <- cbind(res, f0)
   }
 
   if ("upper" %in% bounds) {
+    current <- with(df, cases-deaths-recoveries)
+
+    p <- function(k) {
+      rowSums(vapply(seq_len(k), f, numeric(nrow(df)))) / current
+    }
+
+    pi0 <- f0 / (f1+f2+f0)
+
+    pi <- function(k) {
+      pi0 + (1-pi0) * p(k)
+    }
+
+    pi0_ub <- (p(2)-p(1))/(1-pi(1)/pi(2)+p(2)-p(1))
+
+    upb <- current * pi0_ub / (1-pi0_ub)
+
+    if (any(f0 < 0, upb < 0, na.rm = TRUE)) {
+      warning(
+        "Number of asymptomatic cases is negative for some dates. ",
+        "Manually setting to 0", call. = FALSE
+      )
+      f0[f0 < 0] <- 0
+      upb[upb < 0] <- 0
+    }
+
     res <- cbind(res, upb)
   }
 
