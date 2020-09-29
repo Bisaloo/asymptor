@@ -21,37 +21,27 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/Bisaloo/asymptor/branch/main/graph/badge.svg)](https://codecov.io/gh/Bisaloo/asymptor?branch=main)
 <!-- badges: end -->
 
-The goal of asymptor is to ...
+The asymptor R package allows you to estimate the lower and upper bound of
+asymptomatic cases in an epidemic using the capture/recapture methods from
+Böhning et al.
+([10.1016/j.ijid.2020.06.009](https://doi.org/10.1016/j.ijid.2020.06.009)) and
+Rocchetti et al.
+([10.1101/2020.07.14.20153445](https://doi.org/10.1101/2020.07.14.20153445)).
 
 ## Installation
 
-You can install the released version of asymptor from [CRAN](https://CRAN.R-project.org) with:
+You you can install the development version of asymptor from 
+GitHub with:
 
-```{r eval = FALSE}
-install.packages("asymptor")
+```{r, eval = FALSE}
+# install.packages("remotes")
+remotes::install_github("Bisaloo/asymptor")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Please see the
+[vignette](https://bisaloo.github.io/asymptor/articles/example.html) for a
+detailed example using the COVID-19 data from New York.
 
-```{r example}
-library(asymptor)
-## basic example code
-```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
