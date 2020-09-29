@@ -7,7 +7,7 @@
 #' The behaviour of this `lag()` function is closer to that of `dplyr::lag()`.
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' c(custom_lag(c(1,3,5), 1))
 #'
 #' c(custom_lag(LETTERS, 5))
