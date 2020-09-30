@@ -25,6 +25,6 @@ test_that("test-values", {
 
   res <- estimate_asympto(d, "lower")
 
-  expect_identical(as.integer(round(sum(res$lower, na.rm = TRUE))), 17264L)
+  expect_identical(sum(res$lower, na.rm = TRUE), 17264L)
 
 })

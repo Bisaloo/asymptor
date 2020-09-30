@@ -59,7 +59,7 @@ estimate_asympto <- function(df, bounds = c("lower", "upper")) {
   f0 <- f1*(f1-1)/(1+pmax(0, f2))
 
   if ("lower" %in% bounds) {
-    res <- cbind(res, f0)
+    res <- cbind(res, as.integer(round(f0)))
   }
 
   if ("upper" %in% bounds) {
@@ -89,7 +89,7 @@ estimate_asympto <- function(df, bounds = c("lower", "upper")) {
       upb[upb < 0] <- 0
     }
 
-    res <- cbind(res, upb)
+    res <- cbind(res, as.integer(round(upb)))
   }
 
   colnames(res) <- c("date", bounds)
