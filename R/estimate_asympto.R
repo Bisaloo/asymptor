@@ -51,6 +51,14 @@ estimate_asympto <- function(df, bounds = c("lower", "upper")) {
     )
   }
 
+  if (any(is.na(df[, c("new_cases", "new_deaths")])) | (any(is.na(df$new_recovered) & "upper" %in% bounds))) {
+    warning(
+      "Input df contains some NA values. Manually setting such entries to 0",
+      call. = FALSE
+    )
+    df[is.na(df)] <- 0
+  }
+
   res <- as.data.frame(df$date)
 
   f <- function(k) {
