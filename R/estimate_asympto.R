@@ -1,8 +1,8 @@
 #' Estimate the proportion of asymptomatic cases by capture/recapture
 #'
 #' @param df A data.frame containing three columns containing `date`, the daily
-#'   number of `cases`, and the daily number of `deaths`. To compute the upper
-#'   bound, an additional `recoveries` column is required
+#'   number of `new_cases`, and the daily number of `new_deaths`. To compute the
+#'   upper bound, an additional `new_recoveries` column is required
 #' @param bounds `"lower"`, `"upper"`, or both `c("lower, "upper"`) (the
 #'   default), telling which bounds of the number of asymptomatic cases are
 #'   computed.
@@ -43,9 +43,9 @@ estimate_asympto <- function(df, bounds = c("lower", "upper")) {
   # bound.
   bounds <- match.arg(bounds, several.ok = TRUE)
 
-  if ("upper" %in% bounds && !"recoveries" %in% colnames(df)) {
+  if ("upper" %in% bounds && !"new_recoveries" %in% colnames(df)) {
     stop(
-      "Input df must contain a 'recoveries' column to compute the 'upper' ",
+      "Input df must contain a 'new_recoveries' column to compute the 'upper' ",
       "bound. Please update df accordingly or set the `bounds` argument to ",
       "lower", call. = FALSE
     )
@@ -55,9 +55,9 @@ estimate_asympto <- function(df, bounds = c("lower", "upper")) {
 
   f <- function(k) {
     if (k == 1) {
-      df$cases
+      df$new_cases
     } else {
-      custom_lag(df$cases, k-1) + vapply(0:(k-2), function(i) custom_lag(df$deaths, i), numeric(nrow(df)))
+      custom_lag(df$new_cases, k-1) + vapply(0:(k-2), function(i) custom_lag(df$new_deaths, i), numeric(nrow(df)))
     }
   }
 
@@ -72,7 +72,7 @@ estimate_asympto <- function(df, bounds = c("lower", "upper")) {
   }
 
   if ("upper" %in% bounds) {
-    current <- with(df, cases-deaths-recoveries)
+    current <- with(df, new_cases-new_deaths-new_recoveries)
 
     p <- function(k) {
       rowSums(vapply(seq_len(k), f, numeric(nrow(df)))) / current

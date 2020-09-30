@@ -14,7 +14,7 @@ test_that("estimate_asympto", {
 
   expect_false(any(a_both[, c(2,3)]<0, na.rm = TRUE))
 
-  d_nc <- d[, c("date", "cases", "deaths")]
+  d_nc <- d[, c("date", "new_cases", "new_deaths")]
 
   expect_error(
     estimate_asympto(d_nc),
