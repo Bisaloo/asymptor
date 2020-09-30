@@ -1,10 +1,10 @@
 ## code to prepare `example-data` dataset goes here
 
-df <- read.csv("https://storage.googleapis.com/covid19-open-data/v2/epidemiology.csv")
+df_all <- read.csv("https://storage.googleapis.com/covid19-open-data/v2/epidemiology.csv")
 
 library(dplyr)
 
-df2 <- df %>%
+df_it <- df_all %>%
   na.omit() %>%
   filter(key == "IT") %>%
   transmute(date = as.Date(date),
@@ -12,4 +12,4 @@ df2 <- df %>%
             new_deaths = new_deceased,
             new_recoveries = new_recovered)
 
-saveRDS(df2, "inst/extdata/covid19_italy.rds")
+saveRDS(df_it, "inst/extdata/covid19_italy.rds")
