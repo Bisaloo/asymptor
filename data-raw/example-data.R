@@ -9,7 +9,6 @@ df_it <- df_all %>%
   filter(key == "IT") %>%
   transmute(date = as.Date(date),
             new_cases = new_confirmed,
-            new_deaths = new_deceased,
-            new_recoveries = new_recovered)
+            new_deaths = new_deceased)
 
 saveRDS(df_it, "inst/extdata/covid19_italy.rds")

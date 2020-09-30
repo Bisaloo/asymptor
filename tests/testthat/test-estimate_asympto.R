@@ -14,13 +14,6 @@ test_that("test-format", {
 
   expect_false(any(a_both[, c(2,3)]<0, na.rm = TRUE))
 
-  d_nc <- d[, c("date", "new_cases", "new_deaths")]
-
-  expect_identical(
-    estimate_asympto(d_nc, bounds = "lower"),
-    a_lw
-  )
-
 })
 
 test_that("test-values", {

@@ -28,10 +28,8 @@ head(df)
 ```
 
 We can feed this data directly to the `estimate_asympto()` function. This 
-function requires 4 columns, labelled as `date`, `cases`, `deaths`,
-and `recoveries` (if you want the upper bound), containing the daily number 
-(not the cumulated number!)
-)
+function requires 3 columns, labelled as `date`, `new_cases`, `new_deaths`,
+containing the daily counts (not the cumulated total!)
 
 ```{r}
 asy <- estimate_asympto(df)
