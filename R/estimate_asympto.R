@@ -31,7 +31,7 @@
 #'
 #' @example
 #'
-#' d <- readRDS(system.file("extdata", "covid19_ny.rds", package = "asymptor"))
+#' d <- readRDS(system.file("extdata", "covid19_italy.rds", package = "asymptor"))
 #' head(d)
 #'
 #' estimate_asympto(d)

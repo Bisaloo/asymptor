@@ -1,6 +1,6 @@
 test_that("estimate_asympto", {
 
-  d <- readRDS(system.file("extdata", "covid19_ny.rds", package = "asymptor"))
+  d <- readRDS(system.file("extdata", "covid19_italy.rds", package = "asymptor"))
 
   a_up <- estimate_asympto(d, bounds = "upper")
   a_lw <- estimate_asympto(d, bounds = "lower")
