@@ -27,4 +27,16 @@ test_that("test-values", {
 
   expect_identical(sum(res$lower, na.rm = TRUE), 17264L)
 
+  # Match upper bound result from https://doi.org/10.1101/2020.07.14.20153445
+  # FIXME: this doesn't work but probably because the data changed in the meantime
+
+  # d <- readRDS(system.file("extdata", "covid19_germany.rds", package = "asymptor"))
+  #
+  # res <- estimate_asympto(d)
+  #
+  # expect_identical(
+  #   sum(res$upper[res$date <= "2020-04-17"], na.rm = TRUE),
+  #   650841L-137439L
+  )
+
 })
