@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Example on NY data during the COVID-19 pandemic • asymptor</title>
+<title>Example on Italy data during the COVID-19 pandemic • asymptor</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
-<meta property="og:title" content="Example on NY data during the COVID-19 pandemic">
+<meta property="og:title" content="Example on Italy data during the COVID-19 pandemic">
 <meta property="og:description" content="asymptor">
 <meta property="og:image" content="/reference/figures/logo.png">
 <meta property="og:image:alt" content="A symptomatic person surrounded by many asymptomatic people">
@@ -79,7 +79,7 @@
       </header><script src="example_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Example on NY data during the COVID-19 pandemic</h1>
+      <h1 data-toc-skip>Example on Italy data during the COVID-19 pandemic</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/bisaloo/asymptor/blob/master/vignettes/example.Rmd"><code>vignettes/example.Rmd</code></a></small>
@@ -93,19 +93,18 @@
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://bisaloo.github.io/asymptor/">asymptor</a></span><span class="op">)</span></pre></div>
 <p>Let’s start by loading the example data. It’s bundled in the package but originally comes from <a href="https://github.com/GoogleCloudPlatform/covid-19-open-data" class="uri">https://github.com/GoogleCloudPlatform/covid-19-open-data</a> (Apache License 2.0).</p>
 <div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"covid19_ny.rds"</span>, package <span class="op">=</span> <span class="st">"asymptor"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"covid19_italy.rds"</span>, package <span class="op">=</span> <span class="st">"asymptor"</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
 <span class="co">#&gt;         date new_cases new_deaths new_recoveries</span>
-<span class="co">#&gt; 1 2020-03-01        NA         NA             NA</span>
-<span class="co">#&gt; 2 2020-03-02         0          0             NA</span>
-<span class="co">#&gt; 3 2020-03-03         1          0             NA</span>
-<span class="co">#&gt; 4 2020-03-04         9          0             NA</span>
-<span class="co">#&gt; 5 2020-03-05        11          0             NA</span>
-<span class="co">#&gt; 6 2020-03-06        22          0             NA</span></pre></div>
+<span class="co">#&gt; 1 2020-02-25        93          3              0</span>
+<span class="co">#&gt; 2 2020-02-26        78          2              2</span>
+<span class="co">#&gt; 3 2020-02-27       250          5             42</span>
+<span class="co">#&gt; 4 2020-02-28       238          4              1</span>
+<span class="co">#&gt; 5 2020-02-29       240          8              4</span>
+<span class="co">#&gt; 6 2020-03-01       566          5             33</span></pre></div>
 <p>We can feed this data directly to the <code><a href="../reference/estimate_asympto.html">estimate_asympto()</a></code> function. This function requires 4 columns, labelled as <code>date</code>, <code>cases</code>, <code>deaths</code>, and <code>recoveries</code> (if you want the upper bound), containing the daily number (not the cumulated number!) )</p>
 <div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="va">asy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/estimate_asympto.html">estimate_asympto</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
-<span class="co">#&gt; Warning: Input df contains some NA values. Manually setting such entries to 0</span></pre></div>
+<span class="va">asy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/estimate_asympto.html">estimate_asympto</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></pre></div>
 <p>We may want to visualise these estimations alongside the empirical data. So, we start by merging the two datasets:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit">
 <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">asy</span><span class="op">)</span></pre></div>
@@ -118,10 +117,9 @@
                   ymax <span class="op">=</span> <span class="va">new_cases</span><span class="op">+</span><span class="va">upper</span><span class="op">)</span>, 
               fill <span class="op">=</span> <span class="st">"grey30"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">new_cases</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Estimated total vs detected cases of COVID-19 in NY"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Estimated total vs detected cases of COVID-19 in Italy"</span>,
+       ylab <span class="op">=</span> <span class="st">"Cases"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; Warning: Removed 1 row(s) containing missing values (geom_path).</span>
-
 <span class="co">#&gt; Warning: Removed 1 row(s) containing missing values (geom_path).</span></pre></div>
 <p><img src="example_files/figure-html/example_fig-1.png" width="100%"></p>
   </div>
