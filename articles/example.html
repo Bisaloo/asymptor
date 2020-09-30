@@ -95,14 +95,14 @@
 <div class="sourceCode" id="cb2"><pre class="downlit">
 <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"covid19_italy.rds"</span>, package <span class="op">=</span> <span class="st">"asymptor"</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
-<span class="co">#&gt;         date new_cases new_deaths new_recoveries</span>
-<span class="co">#&gt; 1 2020-02-25        93          3              0</span>
-<span class="co">#&gt; 2 2020-02-26        78          2              2</span>
-<span class="co">#&gt; 3 2020-02-27       250          5             42</span>
-<span class="co">#&gt; 4 2020-02-28       238          4              1</span>
-<span class="co">#&gt; 5 2020-02-29       240          8              4</span>
-<span class="co">#&gt; 6 2020-03-01       566          5             33</span></pre></div>
-<p>We can feed this data directly to the <code><a href="../reference/estimate_asympto.html">estimate_asympto()</a></code> function. This function requires 4 columns, labelled as <code>date</code>, <code>cases</code>, <code>deaths</code>, and <code>recoveries</code> (if you want the upper bound), containing the daily number (not the cumulated number!) )</p>
+<span class="co">#&gt;         date new_cases new_deaths</span>
+<span class="co">#&gt; 1 2020-02-25        93          3</span>
+<span class="co">#&gt; 2 2020-02-26        78          2</span>
+<span class="co">#&gt; 3 2020-02-27       250          5</span>
+<span class="co">#&gt; 4 2020-02-28       238          4</span>
+<span class="co">#&gt; 5 2020-02-29       240          8</span>
+<span class="co">#&gt; 6 2020-03-01       566          5</span></pre></div>
+<p>We can feed this data directly to the <code><a href="../reference/estimate_asympto.html">estimate_asympto()</a></code> function. This function requires 3 columns, labelled as <code>date</code>, <code>new_cases</code>, <code>new_deaths</code>, containing the daily counts (not the cumulated total!)</p>
 <div class="sourceCode" id="cb3"><pre class="downlit">
 <span class="va">asy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/estimate_asympto.html">estimate_asympto</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></pre></div>
 <p>We may want to visualise these estimations alongside the empirical data. So, we start by merging the two datasets:</p>
