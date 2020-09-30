@@ -16,11 +16,6 @@ test_that("test-format", {
 
   d_nc <- d[, c("date", "new_cases", "new_deaths")]
 
-  expect_error(
-    estimate_asympto(d_nc),
-    "recoveries"
-  )
-
   expect_identical(
     estimate_asympto(d_nc, bounds = "lower"),
     a_lw
