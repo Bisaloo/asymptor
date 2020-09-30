@@ -37,6 +37,6 @@ test_that("test-values", {
   # expect_identical(
   #   sum(res$upper[res$date <= "2020-04-17"], na.rm = TRUE),
   #   650841L-137439L
-  )
+  # )
 
 })
