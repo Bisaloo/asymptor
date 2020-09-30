@@ -1,8 +1,7 @@
 #' Estimate the proportion of asymptomatic cases by capture/recapture
 #'
 #' @param df A data.frame containing three columns containing `date`, the daily
-#'   number of `new_cases`, and the daily number of `new_deaths`. To compute the
-#'   upper bound, an additional `new_recoveries` column is required
+#'   number of `new_cases`, and the daily number of `new_deaths`.
 #' @param bounds `"lower"`, `"upper"`, or both `c("lower, "upper"`) (the
 #'   default), telling which bounds of the number of asymptomatic cases are
 #'   computed.
@@ -43,14 +42,6 @@ estimate_asympto <- function(df, bounds = c("lower", "upper")) {
   # bound.
   bounds <- match.arg(bounds, several.ok = TRUE)
 
-  if ("upper" %in% bounds && !"new_recoveries" %in% colnames(df)) {
-    stop(
-      "Input df must contain a 'new_recoveries' column to compute the 'upper' ",
-      "bound. Please update df accordingly or set the `bounds` argument to ",
-      "lower", call. = FALSE
-    )
-  }
-
   res <- as.data.frame(df$date)
 
   f <- function(k) {
@@ -72,7 +63,8 @@ estimate_asympto <- function(df, bounds = c("lower", "upper")) {
   }
 
   if ("upper" %in% bounds) {
-    current <- cumsum(with(df, new_cases-new_deaths-new_recoveries))
+#    current <- cumsum(with(df, new_cases-new_deaths-new_recoveries))
+    current <- f1+f2+f(3)
 
     p <- function(k) {
       rowSums(vapply(seq_len(k), f, numeric(nrow(df)))) / current
