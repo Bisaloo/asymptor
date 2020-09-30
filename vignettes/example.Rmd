@@ -55,7 +55,7 @@ ggplot(df, aes(x = date)) +
               fill = "grey30") +
   geom_line(aes(y = new_cases), color = "red") +
   labs(title = "Estimated total vs detected cases of COVID-19 in Italy",
-       ylab = "Cases") +
+       y = "Cases") +
   theme_minimal()
 ```
 
