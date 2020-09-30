@@ -72,7 +72,7 @@ estimate_asympto <- function(df, bounds = c("lower", "upper")) {
   }
 
   if ("upper" %in% bounds) {
-    current <- with(df, new_cases-new_deaths-new_recoveries)
+    current <- cumsum(with(df, new_cases-new_deaths-new_recoveries))
 
     p <- function(k) {
       rowSums(vapply(seq_len(k), f, numeric(nrow(df)))) / current
