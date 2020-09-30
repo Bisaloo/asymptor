@@ -1,4 +1,4 @@
-test_that("estimate_asympto", {
+test_that("test-format", {
 
   d <- readRDS(system.file("extdata", "covid19_italy.rds", package = "asymptor"))
 
@@ -25,4 +25,18 @@ test_that("estimate_asympto", {
     estimate_asympto(d_nc, bounds = "lower"),
     a_lw
   )
+
+})
+
+test_that("test-values", {
+
+  # Austria data from https://doi.org/fbwv
+  d <- readRDS(system.file("extdata", "data_fbwv.rds", package = "asymptor"))
+  d$new_cases <- c(NA_real_, diff(d$total_cases))
+  d$new_deaths <- c(NA_real_, diff(d$total_deaths))
+
+  res <- estimate_asympto(d, "lower")
+
+  expect_identical(as.integer(round(sum(res$lower, na.rm = TRUE))), 17264L)
+
 })
