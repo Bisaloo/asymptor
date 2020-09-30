@@ -104,7 +104,8 @@
 <span class="co">#&gt; 6 2020-03-06        22          0             NA</span></pre></div>
 <p>We can feed this data directly to the <code><a href="../reference/estimate_asympto.html">estimate_asympto()</a></code> function. This function requires 4 columns, labelled as <code>date</code>, <code>cases</code>, <code>deaths</code>, and <code>recoveries</code> (if you want the upper bound), containing the daily number (not the cumulated number!) )</p>
 <div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="va">asy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/estimate_asympto.html">estimate_asympto</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></pre></div>
+<span class="va">asy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/estimate_asympto.html">estimate_asympto</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
+<span class="co">#&gt; Warning: Input df contains some NA values. Manually setting such entries to 0</span></pre></div>
 <p>We may want to visualise these estimations alongside the empirical data. So, we start by merging the two datasets:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit">
 <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">asy</span><span class="op">)</span></pre></div>
@@ -119,7 +120,8 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">new_cases</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Estimated total vs detected cases of COVID-19 in NY"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; Warning: Removed 2 row(s) containing missing values (geom_path).</span>
+<span class="co">#&gt; Warning: Removed 1 row(s) containing missing values (geom_path).</span>
+
 <span class="co">#&gt; Warning: Removed 1 row(s) containing missing values (geom_path).</span></pre></div>
 <p><img src="example_files/figure-html/example_fig-1.png" width="100%"></p>
   </div>
