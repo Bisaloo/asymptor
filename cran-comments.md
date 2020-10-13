@@ -18,3 +18,4 @@
 
 - Year was added in the references in DESCRIPTION
 - Examples from unexported functions are removed
+- Added example to main function

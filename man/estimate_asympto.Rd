@@ -29,6 +29,14 @@ the \code{bounds} argument):
 \description{
 Estimate the proportion of asymptomatic cases by capture/recapture
 }
+\examples{
+
+d <- readRDS(system.file("extdata", "covid19_italy.rds", package = "asymptor"))
+head(d)
+
+estimate_asympto(d)
+
+}
 \references{
 Böhning D., Rocchetti I., Maruotti A., Holling H. (2020),
 Estimating the undetected infections in the Covid-19 outbreak by harnessing

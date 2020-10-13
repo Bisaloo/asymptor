@@ -28,7 +28,7 @@
 #'   Europe: An upperbound estimator, medRxiv,
 #'   \doi{10.1101/2020.07.14.20153445}.
 #'
-#' @example
+#' @examples
 #'
 #' d <- readRDS(system.file("extdata", "covid19_italy.rds", package = "asymptor"))
 #' head(d)
