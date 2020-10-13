@@ -18,11 +18,3 @@ The behaviour of this \code{lag()} function is closer to that of \code{dplyr::la
 \description{
 Lag a vector
 }
-\examples{
-\dontrun{
-c(custom_lag(c(1,3,5), 1))
-
-c(custom_lag(LETTERS, 5))
-}
-
-}
