@@ -15,10 +15,9 @@ coverage](https://codecov.io/gh/Bisaloo/asymptor/branch/main/graph/badge.svg)](h
 
 The asymptor R package allows you to estimate the lower and upper bound
 of asymptomatic cases in an epidemic using the capture/recapture methods
-from Böhning et al.
-([10.1016/j.ijid.2020.06.009](https://doi.org/10.1016/j.ijid.2020.06.009))
-and Rocchetti et al.
-([10.1101/2020.07.14.20153445](https://doi.org/10.1101/2020.07.14.20153445)).
+from [Böhning et al. (2020)](https://doi.org/10.1016/j.ijid.2020.06.009)
+and [Rocchetti et
+al. (2020)](https://doi.org/10.1101/2020.07.14.20153445).
 
 ## Installation
 
