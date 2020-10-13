@@ -14,3 +14,6 @@
 0 errors | 0 warnings | 1 note
 
 * This is a new release.
+* Following Gregor Seyer's comments:
+
+Year was added in the references in DESCRIPTION
