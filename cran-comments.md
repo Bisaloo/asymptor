@@ -8,6 +8,7 @@
   - R release on windows
   - R release on macOS
 * R devel and release on winbuilder
+* rhub::check_for_cran()
 
 ## R CMD check results
 
