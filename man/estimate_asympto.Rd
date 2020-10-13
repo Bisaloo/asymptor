@@ -8,8 +8,7 @@ estimate_asympto(df, bounds = c("lower", "upper"))
 }
 \arguments{
 \item{df}{A data.frame containing three columns containing \code{date}, the daily
-number of \code{cases}, and the daily number of \code{deaths}. To compute the upper
-bound, an additional \code{recoveries} column is required}
+number of \code{new_cases}, and the daily number of \code{new_deaths}.}
 
 \item{bounds}{\code{"lower"}, \code{"upper"}, or both \verb{c("lower, "upper"}) (the
 default), telling which bounds of the number of asymptomatic cases are
