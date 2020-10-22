@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version-ago/asymptor)](https://CRAN.R-project.org/package=asymptor)
 [![R build
 status](https://github.com/Bisaloo/asymptor/workflows/R-CMD-check/badge.svg)](https://github.com/Bisaloo/asymptor/actions)
 [![Lifecycle:

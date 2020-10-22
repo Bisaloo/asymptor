@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # asymptor <img src="man/figures/logo.gif" align="right" alt="" width="120" />
 
 <!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version-ago/asymptor)](https://CRAN.R-project.org/package=asymptor)
 [![R build status](https://github.com/Bisaloo/asymptor/workflows/R-CMD-check/badge.svg)](https://github.com/Bisaloo/asymptor/actions)
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Codecov test coverage](https://codecov.io/gh/Bisaloo/asymptor/branch/main/graph/badge.svg)](https://codecov.io/gh/Bisaloo/asymptor?branch=main)
