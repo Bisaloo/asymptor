@@ -10,13 +10,14 @@ bibentry(
   author = person("Hugo", "Gruson"),
   year   = year,
   note   = note,
-  url    = "https://CRAN.R-project.org/package=contactdata"
+  url    = "https://CRAN.R-project.org/package=asymptor"
 )
 
 bibentry(
   bibtype  = "Article",
-  title    = "Estimating the undetected infections in the Covid-19 outbreak by harnessing capture–recapture methods",
-  author   = c("Böhning D.", "Rocchetti I.", "Maruotti A.", "Holling H."),
+  title    = "Estimating the undetected infections in the Covid-19 outbreak by
+  harnessing capture–recapture methods",
+  author   = c("D. Böhning ", "I. Rocchetti ", "A. Maruotti", "H. Holling"),
   journal  = "International Journal of Infectious Diseases",
   year     = "2020",
   volume   = "97",
@@ -26,8 +27,9 @@ bibentry(
 
 bibentry(
   bibtype  = "Article",
-  title    = "Estimating the size of undetected cases of the SARS-CoV-2 outbreak in Europe: An upperbound estimator",
-  author   = c("Rocchetti I.", "Böhning D.", "Holling H.", "Maruotti A."),
+  title    = "Estimating the size of undetected cases of the SARS-CoV-2 outbreak
+  in Europe: An upperbound estimator",
+  author   = c("I. Rocchetti", "D. Böhning", "H. Holling", "A. Maruotti"),
   journal  = "medRxiv",
   year     = "2020",
   doi      = "10.1101/2020.07.14.20153445"
