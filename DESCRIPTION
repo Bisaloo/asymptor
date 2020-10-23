@@ -1,6 +1,6 @@
 Package: asymptor
 Title: Estimate Asymptomatic Cases via Capture/Recapture Methods
-Version: 0.2
+Version: 0.3
 Authors@R: 
     person(given = "Hugo",
            family = "Gruson",
