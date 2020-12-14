@@ -40,3 +40,14 @@ test_that("test-values", {
   # )
 
 })
+
+test_that("test-error", {
+
+  d <- readRDS(system.file("extdata", "covid19_italy.rds", package = "asymptor"))
+
+  expect_error(
+    estimate_asympto(d$date, d$new_cases, d$new_deaths),
+    "same lengths"
+  )
+
+})
