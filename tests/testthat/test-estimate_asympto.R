@@ -2,9 +2,9 @@ test_that("test-format", {
 
   d <- readRDS(system.file("extdata", "covid19_italy.rds", package = "asymptor"))
 
-  a_up <- estimate_asympto(d, bounds = "upper")
-  a_lw <- estimate_asympto(d, bounds = "lower")
-  a_both <- estimate_asympto(d)
+  a_up <- estimate_asympto(d$date, d$new_cases, d$new_deaths, bounds = "upper")
+  a_lw <- estimate_asympto(d$date, d$new_cases, d$new_deaths, bounds = "lower")
+  a_both <- estimate_asympto(d$date, d$new_cases, d$new_deaths)
 
   expect_identical(dim(a_up), c(nrow(d), 2L))
   expect_identical(dim(a_lw), c(nrow(d), 2L))
@@ -20,10 +20,10 @@ test_that("test-values", {
 
   # Austria data from https://doi.org/fbwv
   d <- readRDS(system.file("extdata", "data_fbwv.rds", package = "asymptor"))
-  d$new_cases <- c(NA_real_, diff(d$total_cases))
-  d$new_deaths <- c(NA_real_, diff(d$total_deaths))
+  new_cases <- c(NA_real_, diff(d$total_cases))
+  new_deaths <- c(NA_real_, diff(d$total_deaths))
 
-  res <- estimate_asympto(d, "lower")
+  res <- estimate_asympto(d$date, new_cases, new_deaths, "lower")
 
   expect_identical(sum(res$lower, na.rm = TRUE), 17264L)
 

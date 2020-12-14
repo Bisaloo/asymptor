@@ -32,7 +32,7 @@ function requires 3 columns, labelled as `date`, `new_cases`, `new_deaths`,
 containing the daily counts (not the cumulated total!)
 
 ```{r}
-asy <- estimate_asympto(df)
+asy <- estimate_asympto(df$date, df$new_cases, df$new_deaths)
 ```
 
 We may want to visualise these estimations alongside the empirical data. So,

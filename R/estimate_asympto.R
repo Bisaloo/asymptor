@@ -1,7 +1,10 @@
 #' Estimate the proportion of asymptomatic cases by capture/recapture
 #'
-#' @param df A data.frame containing three columns containing `date`, the daily
-#'   number of `new_cases`, and the daily number of `new_deaths`.
+#' @param date A vector containing the dates
+#' @param cases A numeric vector containing the number of new cases at each
+#' `date` (**not** the cumulative number of cases).
+#' @param deaths A numeric vector containing the number of new deaths at each
+#' `date` (**not** the cumulative number of cases).
 #' @param bounds `"lower"`, `"upper"`, or both `c("lower, "upper"`) (the
 #'   default), telling which bounds of the number of asymptomatic cases are
 #'   computed.
@@ -13,7 +16,7 @@
 #'
 #' @return A `data.frame` with two or three columns (depending on the value of
 #'   the `bounds` argument):
-#'   * `date`: the original `date` column from your input dataset `df`
+#'   * `date`: the original `date` column
 #'   * `lower`: the lower bound of asymptomatic cases
 #'   * `upper`: the upper bound of asymptomatic cases
 #'
@@ -33,22 +36,28 @@
 #' d <- readRDS(system.file("extdata", "covid19_italy.rds", package = "asymptor"))
 #' head(d)
 #'
-#' estimate_asympto(d)
+#' estimate_asympto(d$date, d$new_cases, d$new_deaths)
 #'
-estimate_asympto <- function(df, bounds = c("lower", "upper")) {
+estimate_asympto <- function(date, cases, deaths, bounds = c("lower", "upper")) {
 
-  # It's good to allow the user to get only "lower" since they might not have
-  # data with the number of recoveries, which is required to compute the "upper"
-  # bound.
   bounds <- match.arg(bounds, several.ok = TRUE)
 
-  res <- as.data.frame(df$date)
+  nobs <- length(date)
+
+  if (length(cases) != nobs || length(cases) != nobs) {
+    stop(
+      "The vectors passed to `date`, `cases`, and `deaths` must have the same ",
+      "lengths", call. = FALSE
+    )
+  }
+
+  res <- as.data.frame(date)
 
   f <- function(k) {
     if (k == 1) {
-      df$new_cases
+      cases
     } else {
-      custom_lag(df$new_cases, k-1) - rowSums(vapply(0:(k-2), function(i) custom_lag(df$new_deaths, i), numeric(nrow(df))))
+      custom_lag(cases, k-1) - rowSums(vapply(0:(k-2), function(i) custom_lag(deaths, i), numeric(nobs)))
     }
   }
 
@@ -67,7 +76,7 @@ estimate_asympto <- function(df, bounds = c("lower", "upper")) {
     current <- f1+f2+f(3)
 
     p <- function(k) {
-      rowSums(vapply(seq_len(k), f, numeric(nrow(df)))) / current
+      rowSums(vapply(seq_len(k), f, numeric(nobs))) / current
     }
 
     pi0 <- f0 / (f1+f2+f0)

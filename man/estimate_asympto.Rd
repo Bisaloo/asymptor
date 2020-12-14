@@ -4,11 +4,16 @@
 \alias{estimate_asympto}
 \title{Estimate the proportion of asymptomatic cases by capture/recapture}
 \usage{
-estimate_asympto(df, bounds = c("lower", "upper"))
+estimate_asympto(date, cases, deaths, bounds = c("lower", "upper"))
 }
 \arguments{
-\item{df}{A data.frame containing three columns containing \code{date}, the daily
-number of \code{new_cases}, and the daily number of \code{new_deaths}.}
+\item{date}{A vector containing the dates}
+
+\item{cases}{A numeric vector containing the number of new cases at each
+\code{date} (\strong{not} the cumulative number of cases).}
+
+\item{deaths}{A numeric vector containing the number of new deaths at each
+\code{date} (\strong{not} the cumulative number of cases).}
 
 \item{bounds}{\code{"lower"}, \code{"upper"}, or both \verb{c("lower, "upper"}) (the
 default), telling which bounds of the number of asymptomatic cases are
@@ -21,7 +26,7 @@ or debugging purpose.}
 A \code{data.frame} with two or three columns (depending on the value of
 the \code{bounds} argument):
 \itemize{
-\item \code{date}: the original \code{date} column from your input dataset \code{df}
+\item \code{date}: the original \code{date} column
 \item \code{lower}: the lower bound of asymptomatic cases
 \item \code{upper}: the upper bound of asymptomatic cases
 }
@@ -34,7 +39,7 @@ Estimate the proportion of asymptomatic cases by capture/recapture
 d <- readRDS(system.file("extdata", "covid19_italy.rds", package = "asymptor"))
 head(d)
 
-estimate_asympto(d)
+estimate_asympto(d$date, d$new_cases, d$new_deaths)
 
 }
 \references{
