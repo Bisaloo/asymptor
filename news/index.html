@@ -85,7 +85,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">asymptor</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0</span>
       </span>
     </div>
 
@@ -125,14 +125,25 @@
       <small>Source: <a href='https://github.com/bisaloo/asymptor/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="asymptor-03" class="section level1">
-<h1 class="page-header" data-toc-text="0.3">
-<a href="#asymptor-03" class="anchor"></a>asymptor 0.3<small> Unreleased </small>
+    <div id="asymptor-10" class="section level1">
+<h1 class="page-header" data-toc-text="1.0">
+<a href="#asymptor-10" class="anchor"></a>asymptor 1.0<small> Unreleased </small>
 </h1>
+<div id="major-breaking-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#major-breaking-changes" class="anchor"></a>Major breaking changes</h2>
+<ul>
+<li>the public interface of <code><a href="../reference/estimate_asympto.html">estimate_asympto()</a></code> has changed to take three arguments <code>date</code>, <code>cases</code>, <code>deaths</code> instead of one <code>df</code> with three columns. The reason for this change is that the old behaviour forced specific column names that might not match the datasets from users.</li>
+</ul>
+</div>
+<div id="minor-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#minor-changes" class="anchor"></a>Minor changes</h2>
 <ul>
 <li>Unexported functions now use the <code>@noRd</code> roxygen tag, which mean they will not appear in the manual</li>
-<li>Fixed citation</li>
+<li>The citation for the package now refers to the correct package</li>
 </ul>
+</div>
 </div>
     <div id="asymptor-02" class="section level1">
 <h1 class="page-header" data-toc-text="0.2">
