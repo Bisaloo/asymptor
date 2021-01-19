@@ -29,11 +29,11 @@ You can install the stable version of this package from CRAN:
 install.packages("asymptor")
 ```
 
-or the development version from GitHub:
+or the development version from [GitHub](https://github.com/bisaloo),
+via my [r-universe](https://bisaloo.r-universe.dev/):
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("Bisaloo/asymptor")
+install.packages("asymptor", repos = "https://bisaloo.r-universe.dev")
 ```
 
 ## Example
