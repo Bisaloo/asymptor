@@ -19,13 +19,3 @@ df_de <- df_all %>%
             new_deaths = new_deceased)
 
 saveRDS(df_de, "inst/extdata/covid19_germany.rds")
-
-
-df_de %>%
-  estimate_asympto() %>%
-  merge(df_de) %>%
-  filter(date <= "2020-04-17") %>%
-  select(-date) %>%
-  colSums(na.rm = TRUE)
-
-
