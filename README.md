@@ -45,12 +45,12 @@ Italy:
 d <- readRDS(system.file("extdata", "covid19_italy.rds", package = "asymptor"))
 head(d)
 #>         date new_cases new_deaths
-#> 1 2019-12-31         0          0
-#> 2 2020-01-01         0          0
-#> 3 2020-01-02         0          0
-#> 4 2020-01-03         0          0
-#> 5 2020-01-04         0          0
-#> 6 2020-01-05         0          0
+#> 1 2020-01-02         0          0
+#> 2 2020-01-03         0          0
+#> 3 2020-01-04         0          0
+#> 4 2020-01-05         0          0
+#> 5 2020-01-06         0          0
+#> 6 2020-01-07         0          0
 ```
 
 We can estimate the lower and upper bound of asymptomatic cases with:
