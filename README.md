@@ -38,7 +38,37 @@ install.packages("asymptor", repos = "https://bisaloo.r-universe.dev")
 
 ## Example
 
-Please see the
+Let’s start by loading some example data from the COVID-19 epidemic in
+Italy:
+
+``` r
+d <- readRDS(system.file("extdata", "covid19_italy.rds", package = "asymptor"))
+head(d)
+#>         date new_cases new_deaths
+#> 1 2019-12-31         0          0
+#> 2 2020-01-01         0          0
+#> 3 2020-01-02         0          0
+#> 4 2020-01-03         0          0
+#> 5 2020-01-04         0          0
+#> 6 2020-01-05         0          0
+```
+
+We can estimate the lower and upper bound of asymptomatic cases with:
+
+``` r
+library(asymptor)
+estimate_asympto(d$date, d$new_cases, d$new_deaths)
+```
+
+Or, with a tidyverse-compatible syntax:
+
+``` r
+library(dplyr)
+d %>%
+  mutate(asympto_cases = estimate_asympto(date, new_cases, new_deaths))
+```
+
+Please refer to the
 [vignette](https://bisaloo.github.io/asymptor/articles/example.html) for
 a detailed example using the COVID-19 data from Italy.
 

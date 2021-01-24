@@ -42,6 +42,14 @@ we start by merging the two datasets:
 df <- merge(df, asy)
 ```
 
+Alternatively, we can directly use a tidyverse-compatible syntax:
+
+```{r, eval = require("dplyr")}
+library(dplyr)
+df %>%
+  mutate(lower = estimate_asympto(date, new_cases, new_deaths, "lower")$lower,
+         upper = estimate_asympto(date, new_cases, new_deaths, "upper")$upper)
+```
 Then, we can the ggplot2 package to plot the result:
 
 ```{r, example_fig, fig.height = 4.5, fig.width = 9, out.width='100%'}
