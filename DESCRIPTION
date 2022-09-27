@@ -9,8 +9,12 @@ Authors@R:
            comment = c(ORCID = "0000-0002-4094-1476"))
 Description: Estimate the lower and upper bound of asymptomatic cases in an 
     epidemic using the capture/recapture methods from Böhning et al. (2020) 
-    <doi:10.1016/j.ijid.2020.06.009> and Rocchetti et al. (2020) 
-    <doi:10.1101/2020.07.14.20153445>.
+    <doi:10.1016/j.ijid.2020.06.009> and Rocchetti et al. (2020)
+    <doi:10.1101/2020.07.14.20153445>. Note there is currently some discussion
+    about the validity of the methods implemented in this package. You should
+    read carefully the original articles, alongside this answer from Li et al.
+    (2022) <doi:10.48550/arXiv.2209.11334> before using this package in your
+    project.
 License: GPL-3
 URL: https://bisaloo.github.io/asymptor/, https://github.com/bisaloo/asymptor
 BugReports: https://github.com/bisaloo/asymptor/issues
