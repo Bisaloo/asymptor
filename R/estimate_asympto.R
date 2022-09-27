@@ -30,6 +30,15 @@
 #'   Estimating the size of undetected cases of the SARS-CoV-2 outbreak in
 #'   Europe: An upperbound estimator, medRxiv,
 #'   \doi{10.1101/2020.07.14.20153445}.
+#' @references Li M., Dushoff J., Earn D.J.D., Bolker B.M. (2022), Evaluating
+#'   undercounts in epidemics: responsi to Maruotti et al. 2022, arXiv,
+#'   \doi{10.48550/ARXIV.2209.11334}.
+#'
+#' @note
+#' Please note there is currently some discussion about the validity of the
+#' methods implemented in this package. You should read carefully the original
+#' articles, alongside this answer from Li et al. (2022) before using this
+#' package in your project.
 #'
 #' @examples
 #'
