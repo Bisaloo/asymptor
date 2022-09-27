@@ -78,4 +78,4 @@ Please refer to the
 [vignette](https://bisaloo.github.io/asymptor/articles/example.html) for
 a detailed example using the COVID-19 data from Italy.
 
-![example_figure](https://bisaloo.github.io/asymptor/articles/example_files/figure-html/example_fig-1.png)
+![example\_figure](https://bisaloo.github.io/asymptor/articles/example_files/figure-html/example_fig-1.png)
