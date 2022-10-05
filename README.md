@@ -78,4 +78,4 @@ Please refer to the
 [vignette](https://hugogruson.fr/asymptor/articles/example.html) for a
 detailed example using the COVID-19 data from Italy.
 
-![example_figure](https://hugogruson.fr/asymptor/articles/example_files/figure-html/example_fig-1.png)
+![example\_figure](https://hugogruson.fr/asymptor/articles/example_files/figure-html/example_fig-1.png)
