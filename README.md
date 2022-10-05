@@ -10,9 +10,9 @@ status](https://www.r-pkg.org/badges/version-ago/asymptor)](https://CRAN.R-proje
 [![R build
 status](https://github.com/Bisaloo/asymptor/workflows/R-CMD-check/badge.svg)](https://github.com/Bisaloo/asymptor/actions)
 [![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#maturing)
 [![Codecov test
-coverage](https://codecov.io/gh/Bisaloo/asymptor/branch/main/graph/badge.svg)](https://codecov.io/gh/Bisaloo/asymptor?branch=main)
+coverage](https://codecov.io/gh/Bisaloo/asymptor/branch/main/graph/badge.svg)](https://app.codecov.io/gh/Bisaloo/asymptor?branch=main)
 <!-- badges: end -->
 
 The asymptor R package allows you to estimate the lower and upper bound
@@ -75,7 +75,7 @@ d %>%
 ```
 
 Please refer to the
-[vignette](https://bisaloo.github.io/asymptor/articles/example.html) for
-a detailed example using the COVID-19 data from Italy.
+[vignette](https://hugogruson.fr/asymptor/articles/example.html) for a
+detailed example using the COVID-19 data from Italy.
 
-![example\_figure](https://bisaloo.github.io/asymptor/articles/example_files/figure-html/example_fig-1.png)
+![example_figure](https://hugogruson.fr/asymptor/articles/example_files/figure-html/example_fig-1.png)
