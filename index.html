@@ -21,8 +21,12 @@
 <meta property="og:title" content="Estimate Asymptomatic Cases via Capture/Recapture Methods">
 <meta property="og:description" content="Estimate the lower and upper bound of asymptomatic cases in an 
     epidemic using the capture/recapture methods from Böhning et al. (2020) 
-    &lt;doi:10.1016/j.ijid.2020.06.009&gt; and Rocchetti et al. (2020) 
-    &lt;doi:10.1101/2020.07.14.20153445&gt;.">
+    &lt;doi:10.1016/j.ijid.2020.06.009&gt; and Rocchetti et al. (2020)
+    &lt;doi:10.1101/2020.07.14.20153445&gt;. Note there is currently some discussion
+    about the validity of the methods implemented in this package. You should
+    read carefully the original articles, alongside this answer from Li et al.
+    (2022) &lt;doi:10.48550/arXiv.2209.11334&gt; before using this package in your
+    project.">
 <meta property="og:image" content="https://bisaloo.github.io/asymptor/reference/figures/logo.png">
 <meta property="og:image:alt" content="A symptomatic person surrounded by many asymptomatic people">
 <meta name="twitter:card" content="summary_large_image">
@@ -34,6 +38,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -46,7 +52,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">asymptor</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.9000</span>
       </span>
     </div>
 
@@ -64,7 +70,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/bisaloo/asymptor/">
+  <a href="https://github.com/bisaloo/asymptor/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -81,104 +87,109 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="asymptor-" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#asymptor-" class="anchor"></a>asymptor <img src="reference/figures/logo.gif" align="right" alt="" width="120">
+<div class="section level1">
+<div class="page-header"><h1 id="asymptor-">asymptor <img src="reference/figures/logo.gif" align="right" alt="" width="120"><a class="anchor" aria-label="anchor" href="#asymptor-"></a>
 </h1></div>
 <!-- badges: start -->
-
-<p>The asymptor R package allows you to estimate the lower and upper bound of asymptomatic cases in an epidemic using the capture/recapture methods from <a href="https://doi.org/10.1016/j.ijid.2020.06.009">Böhning et al. (2020)</a> and <a href="https://doi.org/10.1101/2020.07.14.20153445">Rocchetti et al. (2020)</a>.</p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<p>The asymptor R package allows you to estimate the lower and upper bound of asymptomatic cases in an epidemic using the capture/recapture methods from <a href="https://doi.org/10.1016/j.ijid.2020.06.009" class="external-link">Böhning et al. (2020)</a> and <a href="https://doi.org/10.1101/2020.07.14.20153445" class="external-link">Rocchetti et al. (2020)</a>.</p>
+<p><strong>Please note there is currently some discussion about the validity of the methods implemented in this package. You should read carefully the original articles, alongside this answer from <a href="https://doi.org/10.48550/arXiv.2209.11334" class="external-link">Li et al. (2022)</a> before using this package in your project.</strong></p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>You can install the stable version of this package from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"asymptor"</span><span class="op">)</span></code></pre></div>
-<p>or the development version from <a href="https://github.com/bisaloo">GitHub</a>, via my <a href="https://bisaloo.r-universe.dev/">r-universe</a>:</p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"asymptor"</span><span class="op">)</span></span></code></pre></div>
+<p>or the development version from <a href="https://github.com/bisaloo" class="external-link">GitHub</a>, via my <a href="https://bisaloo.r-universe.dev/" class="external-link">r-universe</a>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"asymptor"</span>, repos <span class="op">=</span> <span class="st">"https://bisaloo.r-universe.dev"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"asymptor"</span>, repos <span class="op">=</span> <span class="st">"https://bisaloo.r-universe.dev"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="example" class="section level2">
-<h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
+<div class="section level2">
+<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h2>
 <p>Let’s start by loading some example data from the COVID-19 epidemic in Italy:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"covid19_italy.rds"</span>, package <span class="op">=</span> <span class="st">"asymptor"</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span>
-<span class="co">#&gt;         date new_cases new_deaths</span>
-<span class="co">#&gt; 1 2020-01-02         0          0</span>
-<span class="co">#&gt; 2 2020-01-03         0          0</span>
-<span class="co">#&gt; 3 2020-01-04         0          0</span>
-<span class="co">#&gt; 4 2020-01-05         0          0</span>
-<span class="co">#&gt; 5 2020-01-06         0          0</span>
-<span class="co">#&gt; 6 2020-01-07         0          0</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"covid19_italy.rds"</span>, package <span class="op">=</span> <span class="st">"asymptor"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span></span>
+<span><span class="co">#&gt;         date new_cases new_deaths</span></span>
+<span><span class="co">#&gt; 1 2020-01-02         0          0</span></span>
+<span><span class="co">#&gt; 2 2020-01-03         0          0</span></span>
+<span><span class="co">#&gt; 3 2020-01-04         0          0</span></span>
+<span><span class="co">#&gt; 4 2020-01-05         0          0</span></span>
+<span><span class="co">#&gt; 5 2020-01-06         0          0</span></span>
+<span><span class="co">#&gt; 6 2020-01-07         0          0</span></span></code></pre></div>
 <p>We can estimate the lower and upper bound of asymptomatic cases with:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://bisaloo.github.io/asymptor/">asymptor</a></span><span class="op">)</span>
-<span class="fu"><a href="reference/estimate_asympto.html">estimate_asympto</a></span><span class="op">(</span><span class="va">d</span><span class="op">$</span><span class="va">date</span>, <span class="va">d</span><span class="op">$</span><span class="va">new_cases</span>, <span class="va">d</span><span class="op">$</span><span class="va">new_deaths</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bisaloo.github.io/asymptor/">asymptor</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/estimate_asympto.html">estimate_asympto</a></span><span class="op">(</span><span class="va">d</span><span class="op">$</span><span class="va">date</span>, <span class="va">d</span><span class="op">$</span><span class="va">new_cases</span>, <span class="va">d</span><span class="op">$</span><span class="va">new_deaths</span><span class="op">)</span></span></code></pre></div>
 <p>Or, with a tidyverse-compatible syntax:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
-<span class="va">d</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>asympto_cases <span class="op">=</span> <span class="fu"><a href="reference/estimate_asympto.html">estimate_asympto</a></span><span class="op">(</span><span class="va">date</span>, <span class="va">new_cases</span>, <span class="va">new_deaths</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="va">d</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>asympto_cases <span class="op">=</span> <span class="fu"><a href="reference/estimate_asympto.html">estimate_asympto</a></span><span class="op">(</span><span class="va">date</span>, <span class="va">new_cases</span>, <span class="va">new_deaths</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Please refer to the <a href="https://bisaloo.github.io/asymptor/articles/example.html">vignette</a> for a detailed example using the COVID-19 data from Italy.</p>
-<p><img src="https://bisaloo.github.io/asymptor/articles/example_files/figure-html/example_fig-1.png" alt="example_figure"></p>
+<div class="figure">
+<img src="https://bisaloo.github.io/asymptor/articles/example_files/figure-html/example_fig-1.png" alt=""><p class="caption">example_figure</p>
+</div>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=asymptor">https://​cloud.r-project.org/​package=asymptor</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/bisaloo/asymptor/">https://​github.com/​bisaloo/​asymptor/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/bisaloo/asymptor/issues">https://​github.com/​bisaloo/​asymptor/​issues</a>
-</li>
-</ul>
-</div>
-<div class="license">
-<h2>License</h2>
-<ul class="list-unstyled">
-<li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></small></li>
-</ul>
-</div>
-<div class="citation">
-<h2>Citation</h2>
-<ul class="list-unstyled">
-<li><a href="authors.html">Citing asymptor</a></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>
-<a href="https://www.normalesup.org/~hgruson/">Hugo Gruson</a> <br><small class="roles"> Maintainer, author, copyright holder </small> <a href="https://orcid.org/0000-0002-4094-1476" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="https://cloud.r-project.org/package=asymptor" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/bisaloo/asymptor/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/bisaloo/asymptor/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="license">
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://CRAN.R-project.org/package=asymptor"><img src="https://www.r-pkg.org/badges/version-ago/asymptor" alt="CRAN status"></a></li>
-<li><a href="https://github.com/Bisaloo/asymptor/actions"><img src="https://github.com/Bisaloo/asymptor/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
-<li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a></li>
-<li><a href="https://codecov.io/gh/Bisaloo/asymptor?branch=main"><img src="https://codecov.io/gh/Bisaloo/asymptor/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="LICENSE.html">Full license</a></li>
+<li><small><a href="https://www.r-project.org/Licenses/GPL-3" class="external-link">GPL-3</a></small></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing asymptor</a></li>
+</ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>
+<a href="https://www.normalesup.org/~hgruson/" class="external-link">Hugo Gruson</a> <br><small class="roles"> Maintainer, author, copyright holder </small> <a href="https://orcid.org/0000-0002-4094-1476" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://CRAN.R-project.org/package=asymptor" class="external-link"><img src="https://www.r-pkg.org/badges/version-ago/asymptor" alt="CRAN status"></a></li>
+<li><a href="https://github.com/Bisaloo/asymptor/actions" class="external-link"><img src="https://github.com/Bisaloo/asymptor/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#maturing" class="external-link"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a></li>
+<li><a href="https://codecov.io/gh/Bisaloo/asymptor?branch=main" class="external-link"><img src="https://codecov.io/gh/Bisaloo/asymptor/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
+</ul>
+</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://www.normalesup.org/~hgruson/">Hugo Gruson</a>.</p>
+  <p></p>
+<p>Developed by <a href="https://www.normalesup.org/~hgruson/" class="external-link">Hugo Gruson</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -186,6 +197,8 @@
 
   
 
+
+  
 
   </body>
 </html>

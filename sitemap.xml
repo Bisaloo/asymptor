@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://bisaloo.github.io/asymptor//index.html</loc>
+    <loc>https://bisaloo.github.io/asymptor/404.html</loc>
   </url>
   <url>
-    <loc>https://bisaloo.github.io/asymptor//reference/estimate_asympto.html</loc>
+    <loc>https://bisaloo.github.io/asymptor/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://bisaloo.github.io/asymptor//articles/example.html</loc>
+    <loc>https://bisaloo.github.io/asymptor/articles/example.html</loc>
+  </url>
+  <url>
+    <loc>https://bisaloo.github.io/asymptor/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://bisaloo.github.io/asymptor/authors.html</loc>
+  </url>
+  <url>
+    <loc>https://bisaloo.github.io/asymptor/index.html</loc>
+  </url>
+  <url>
+    <loc>https://bisaloo.github.io/asymptor/news/index.html</loc>
+  </url>
+  <url>
+    <loc>https://bisaloo.github.io/asymptor/reference/estimate_asympto.html</loc>
+  </url>
+  <url>
+    <loc>https://bisaloo.github.io/asymptor/reference/index.html</loc>
   </url>
 </urlset>
