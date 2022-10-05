@@ -1,3 +1,9 @@
+# asymptor 1.1.0
+
+## Minor changes
+
+* there is now a warning about a possible flaw in the methods in the README, the DESCRIPTION, and the `estimate_asympto()` function documentation.
+
 # asymptor 1.0
 
 ## Major breaking changes
