@@ -22,6 +22,7 @@ Depends:
     R (>= 3.5)
 Suggests: 
     covr,
+    dplyr,
     ggplot2,
     knitr,
     rmarkdown,
