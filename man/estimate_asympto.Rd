@@ -34,6 +34,12 @@ the \code{bounds} argument):
 \description{
 Estimate the proportion of asymptomatic cases by capture/recapture
 }
+\note{
+Please note there is currently some discussion about the validity of the
+methods implemented in this package. You should read carefully the original
+articles, alongside this answer from Li et al. (2022) before using this
+package in your project.
+}
 \examples{
 
 d <- readRDS(system.file("extdata", "covid19_italy.rds", package = "asymptor"))
@@ -52,4 +58,8 @@ Rocchetti I., Böhning D., Holling H., Maruotti A., (2020),
 Estimating the size of undetected cases of the SARS-CoV-2 outbreak in
 Europe: An upperbound estimator, medRxiv,
 \doi{10.1101/2020.07.14.20153445}.
+
+Li M., Dushoff J., Earn D.J.D., Bolker B.M. (2022), Evaluating
+undercounts in epidemics: responsi to Maruotti et al. 2022, arXiv,
+\doi{10.48550/ARXIV.2209.11334}.
 }

@@ -21,6 +21,12 @@ from [Böhning et al. (2020)](https://doi.org/10.1016/j.ijid.2020.06.009)
 and [Rocchetti et
 al. (2020)](https://doi.org/10.1101/2020.07.14.20153445).
 
+**Please note there is currently some discussion about the validity of
+the methods implemented in this package. You should read carefully the
+original articles, alongside this answer from [Li et al.
+(2022)](https://doi.org/10.48550/arXiv.2209.11334) before using this
+package in your project.**
+
 ## Installation
 
 You can install the stable version of this package from CRAN:
